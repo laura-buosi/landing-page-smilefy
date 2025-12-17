@@ -1,0 +1,169 @@
+#cta {
+    background-image: url(../Fotos/Ctaimg5.png);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-position: center top; /* Use 'center top' para garantir que o topo da imagem se alinhe ao topo do conteúdo */
+    background-repeat: no-repeat;
+    padding-bottom: 100px;
+    padding-top: 108px;
+    overflow: hidden;
+    position: relative;
+}
+
+#cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+    to bottom,
+    #17506a64 70%,
+    #f0f8ffdb 95%,
+    #f0f8ffff 100%
+  );
+  z-index: 0;
+}
+
+#cta_content {
+    position:relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 80vh;
+}
+
+#cta_title,
+#cta_subtitle {
+    z-index: 2;
+}
+
+#cta_seta {
+    width: 100%; /* Garante que a seta ocupe a largura total, forçando o CTA a ter altura */
+    height: auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#cta_seta i {
+  font-size: 32px;
+  color: #2b6a6d;
+  animation: float 1.6s infinite;
+  padding-top: 1.5em;
+  overflow: hidden;
+}
+
+#cta_title {
+    color: white;
+    font-size: 3em;
+    width: 100%;
+    padding: 0 0.5em;
+    text-align: center;
+    line-height: 80px;
+    padding-top: 5em;
+    text-shadow: 5px 5px 10px black;
+    overflow: hidden;
+}
+
+#cta_subtitle {
+    color: white;
+    text-align: center;
+    padding: 0.2em 0.5em;
+    width: 100%;
+    text-shadow: 3px 3px 5px black;
+    overflow: hidden;
+}
+
+#btn_pai {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    margin-top: 0.5em;
+    z-index: 3;
+    overflow: hidden;
+}
+
+#btn_mobile {
+  display: none;
+}
+
+.btn_default.primary {
+  background-color: #17506a;
+  color: white;
+  border: none;
+  padding: 1em;
+  margin-top: 1em;
+  border-radius: 8px;
+
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.25),
+    0 2px 4px rgba(255, 255, 255, 0.15) inset;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.btn_default.primary:hover {
+  background-color: #2b6a6d;
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    0 2px 4px rgba(255, 255, 255, 0.2) inset;
+}
+
+.btn_default.primary:active {
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 1215px) {
+  #cta_title {
+    line-height: 1.3em;
+    padding-bottom: 0.5em;
+    padding-top: 0;
+  }
+
+  #cta_subtitle {
+    padding: 0 2em;
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #cta_title {
+    font-size: 2.5em;
+  }
+
+  .btn_default.primary {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  #cta_title {
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 260px) {
+  #cta_title {
+    font-size: 1.5em;
+  }
+
+  #cta_subtitle {
+    font-size: 0.5em;
+  }
+
+  #btn_mobile {
+    display: block;
+  }
+
+  #btn_pc {
+    display: none;
+  }
+}

@@ -1,0 +1,183 @@
+#download {
+    background-color: #afdccd;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+#smalld {
+    font-size: 1.5em;
+    font-weight: 200;
+    color: #2b6a6d;
+}
+
+#download h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 3.5em;
+    color: aliceblue;
+    text-shadow: 3px 3px 5px black;
+}
+
+#pd {
+    text-align: center;
+    color: aliceblue;
+    background-color: #2b6a6d;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 5px 0 10px #2b6a6d, -5px 0 10px #2b6a6d;
+    font-size: 1em;
+}
+
+#celular_flex {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    gap: 0px;
+}
+
+#botao_flex {
+    padding: 20px;
+    width: 50%;
+    margin-right: 80px;
+}
+
+#botao_flex h2 {
+    text-align: left;
+    font-size: 1.5em;
+}
+
+#botao_flex p {
+    margin-top: 10px;
+    text-align: left;
+    font-weight: 400;
+    color: #2b6a6d;
+    font-size: 1em;
+}
+
+#botao_flex ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  font-size: 0.9em;
+  margin-top: 1.5em;
+}
+
+#botao_flex ul li {
+  text-align: left;
+  line-height: 1.4;
+  color: #001730;
+  font-weight: 400;
+}
+
+#celulard {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 9 / 19; /* proporção de celular */
+    object-fit: contain;
+}
+
+.pulse {
+  animation: float 3s ease-in-out infinite;
+}
+
+#img_flex {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+#btnd {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    margin-top: 2em;
+}
+
+#smalld2 {
+    font-weight: 500;
+}
+
+.btn_default.secundary {
+    color: white;
+    background-color: #17506a;
+    border: 2px solid #17506a; 
+    box-shadow: 0 4px 10px rgb(0, 0, 0); 
+}
+
+/* Efeito ao passar o mouse para o botão Primário */
+.btn_default.secundary:hover {
+    background-color: #2b6a6d; 
+    border-color: #2b6a6d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(23, 80, 106, 0.6); 
+}
+
+@media screen and (max-width: 680px) {
+  #celular_flex {
+      display: flex;
+      justify-content: center;
+      align-items:center;
+      flex-direction: column;
+  }
+
+  #botao_flex p,
+  #botao_flex h2 {
+    text-align: center;
+  }
+
+  #listad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #botao_flex ul li {
+    text-align: justify;
+  }
+
+  #img_flex {
+    justify-content: center;
+    align-items: center;
+  }
+
+  #btnd {
+    justify-content: center;
+    align-items: center;
+  }
+
+  #botao_flex {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #download h1 {
+    font-size: 3em;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  #botao_flex ul li {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 270px) {
+  #celulard,
+  #botao_flex h2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 220px) {
+  #download h1 {
+    font-size: 2em;
+  }
+
+  #smalld {
+    font-size: 1em;
+  }
+}
