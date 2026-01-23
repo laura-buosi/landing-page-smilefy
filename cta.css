@@ -1,5 +1,5 @@
 #cta {
-    background-image: url(Ctaimg5.png);
+    background-image: url(../Fotos/Ctaimg5.png);
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -17,9 +17,9 @@
     inset: 0;
     background: linear-gradient(
     to bottom,
-    #17506a64 70%,
-    #f0f8ffdb 95%,
-    #f0f8ffff 100%
+    var(--grad-1) 70%,
+    var(--grad-2) 95%,
+    var(--grad-3) 100%
   );
   z-index: 0;
 }
@@ -50,7 +50,7 @@
 
 #cta_seta i {
   font-size: 32px;
-  color: #2b6a6d;
+  color: var(--text-color-seta);
   animation: float 1.6s infinite;
   padding-top: 1.5em;
   overflow: hidden;
