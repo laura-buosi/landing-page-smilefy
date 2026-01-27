@@ -89,76 +89,72 @@ if (themeButtons.length) {
 // Galeria de pessoas com descrição detalhada
 const people = document.querySelectorAll('.photo-item');
 const note = document.getElementById('profile_note');
-const closeBtn = document.getElementById('close_note');
 
 const noteName = document.getElementById('note_name');
 const noteRole = document.getElementById('note_role');
 const noteInfo = document.getElementById('note_info');
 
-let isPinned = false; // controla se foi aberto por clique
-
-function showNote(person, pin = false) {
+function showNote(person) {
   noteName.textContent = person.dataset.nome;
   noteRole.textContent = person.dataset.cargo;
   noteInfo.textContent = person.dataset.info;
 
+  const rect = person.getBoundingClientRect();
+  const scrollY = window.scrollY;
+  const scrollX = window.scrollX;
+
+  const noteWidth = note.offsetWidth;
+  const padding = 12;
+
+  let top, left;
+
+  if (window.innerWidth >= 1280) {
+    // desktop: ao lado
+    top = rect.top + scrollY;
+    left = rect.right + padding + scrollX;
+
+    /* se sair da tela, joga pra esquerda
+    if (left + noteWidth > window.innerWidth) {
+      left = rect.left - noteWidth - padding + scrollX;
+    }*/
+
+  } else {
+    // tablet e mobile: embaixo
+    top = rect.bottom + padding + scrollY;
+    left = rect.left + scrollX;
+
+    /* garante que não ultrapasse a tela
+    if (left + noteWidth > window.innerWidth) {
+      left = window.innerWidth - noteWidth - padding;
+    }
+    if (left < padding) {
+      left = padding;
+    }*/
+  }
+
+  note.style.top = `${top}px`;
+  note.style.left = `${left}px`;
+
   note.classList.add('show');
-  isPinned = pin;
 }
 
 function hideNote() {
   note.classList.remove('show');
-  isPinned = false;
 }
 
 people.forEach(person => {
-  // hover → abre temporário
-  person.addEventListener('mouseenter', () => {
-    if (!isPinned) showNote(person);
+  person.addEventListener('mouseenter', () => showNote(person));
+  person.addEventListener('click', () => showNote(person));
+  person.addEventListener('mouseleave', () => hideNote());
   });
 
-  // saiu do hover → fecha se não estiver "fixado"
-  person.addEventListener('mouseleave', () => {
-    if (!isPinned) hideNote();
-  });
+  //  person.addEventListener('mouseleave', () => {
+  // if (window.innerWidth > 768) hideNote();
+  // });
 
-  // click → fixa a nota
-  person.addEventListener('click', (e) => {
-    e.stopPropagation(); // evita fechar imediatamente
-    showNote(person, true);
-  });
-});
-
-// botão fechar
-closeBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  hideNote();
-});
-
-// clique fora fecha a nota
-document.addEventListener('click', () => {
-  hideNote();
-});
-
-//Animação dos artigos
-const objCards = document.querySelectorAll('#obj article');
-
-const objObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      } else {
-        entry.target.classList.remove('show');
-      }
-    });
-  },
-  {
-    threshold: 0.2
+// clicar fora fecha
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.photo-item') && !e.target.closest('#profile_note')) {
+    hideNote();
   }
-);
-
-objCards.forEach((card, index) => {
-  card.style.transitionDelay = `${index * 0.15}s`;
-  objObserver.observe(card);
 });
