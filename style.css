@@ -24,9 +24,9 @@
   --text-color-fusion: aliceblue;
   --text-color-seta: #2b6a6d;
 
-  --grad-1: rgba(var(--primary-rgb), 0.39); /* #17506a64 */
-  --grad-2: rgba(240, 248, 255, 0.86);       /* #f0f8ffdb */
-  --grad-3: rgba(240, 248, 255, 1);          /* #f0f8ffff */
+  --grad-1: rgba(23, 80, 106, 0.39);
+  --grad-2: rgba(240, 248, 255, 0.86);
+  --grad-3: rgba(240, 248, 255, 1);
 }
 
 [data-theme="dark"] {
@@ -125,3 +125,4 @@ body {
     transform: translateY(0);
   }
 }
+
